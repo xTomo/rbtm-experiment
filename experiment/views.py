@@ -396,7 +396,7 @@ def check_and_prepare_exp_parameters(exp_param):
 
 
 # NEED TO EDIT (COMMENT BEFORE POWERING ON SOURCE)
-@app.route('/tomograph/<int:tomo_num>/experiment/start', methods=['POST'])
+@app.route('/tomograph/<int:tomo_num>/experiment/start', methods=['POST'])  # TODO: POST? but 'stop' is GET
 def experiment_start(tomo_num):
     logger.info('\n\nREQUEST: EXPERIMENT/START')
     tomograph = TOMOGRAPHS[tomo_num - 1]
@@ -453,7 +453,7 @@ def experiment_start(tomo_num):
     return create_response(True)
 
 
-@app.route('/tomograph/<int:tomo_num>/experiment/stop', methods=['GET'])
+@app.route('/tomograph/<int:tomo_num>/experiment/stop', methods=['GET'])  # TODO: GET? but 'start' is POST
 def experiment_stop(tomo_num):
     logger.info('\n\nREQUEST: EXPERIMENT/STOP')
     tomograph = TOMOGRAPHS[tomo_num - 1]
