@@ -138,8 +138,16 @@ def make_png(image_numpy, png_filename=FRAME_PNG_FILENAME):
     get_logger().info("Converting image to png-file...")
     res = image_numpy
     try:
+
         small_res = zoom(np.rot90(res), zoom=0.25, order=0)
-        plt.imsave(png_filename, small_res, cmap=plt.cm.gray)
+        fig = plt.figure()
+        img = plt.imshow(small_res)
+        fig.colorbar(img)
+        fig.tight_layout()
+        plt.gray()
+        plt.axis('off')
+        plt.savefig(png_filename)
+
     except Exception as e:
         raise ModExpError(error="Could not make png-file from image", exception_message=e.message)
 
