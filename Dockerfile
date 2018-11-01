@@ -1,6 +1,6 @@
-FROM ubuntu:trusty
+FROM ubuntu:bionic
 
-MAINTAINER itsnotme
+MAINTAINER buzmakov
 
 ENV DEBIAN_FRONTEND=noninteractive
 ENV TZ=Europe/Moscow
