@@ -13,9 +13,12 @@ import requests
 import numpy as np
 from StringIO import StringIO
 from scipy.ndimage import zoom
+from scipy.ndimage.filters import median_filter
 import threading
 import time
 
+import matplotlib
+matplotlib.use('Agg')
 import matplotlib.pyplot as plt
 
 from experiment.conf import FRAME_PNG_FILENAME, STORAGE_EXP_FINISH_URI, STORAGE_FRAMES_URI
@@ -138,8 +141,8 @@ def make_png(image_numpy, png_filename=FRAME_PNG_FILENAME):
     get_logger().info("Converting image to png-file...")
     res = image_numpy
     try:
-
         small_res = zoom(np.rot90(res), zoom=0.25, order=0)
+        small_res = median_filter(small_res, 3)
         fig = plt.figure()
         img = plt.imshow(small_res)
         fig.colorbar(img)

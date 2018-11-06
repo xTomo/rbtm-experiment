@@ -1,9 +1,19 @@
-server:
-  build: .
-  volumes:
-    - ./logs:/var/www/experiment/logs
-  external_links:
-    - drivers_server_1
-  ports:
-    - "5001:5001"
-  restart: unless-stopped
+version: '2.3'
+services:
+  server:
+    build: .
+    container_name: rbtm-experiment
+    volumes:
+      - ./logs:/var/www/experiment/logs
+    external_links:
+      - rbtm-drivers
+    ports:
+      - "5001:5001"
+    networks:
+      - default
+      - rbtm-drivers_default
+    restart: unless-stopped
+
+networks:
+  rbtm-drivers_default:
+    external: true
