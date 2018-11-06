@@ -12,13 +12,13 @@ for storage and web-page of adjustment
 
 REAL_TOMOGRAPH_STORAGE_WEBPAGE = True
 
-TOMO_ADDR = "rbtm-drivers:10000"
+TOMO_ADDR = "tango-cs:10000"
 
 STORAGE_FRAMES_URI = "http://10.0.7.153:5006/storage/frames/post"
 STORAGE_EXP_START_URI = "http://10.0.7.153:5006/storage/experiments/create"
 STORAGE_EXP_FINISH_URI = "http://10.0.7.153:5006/storage/experiments/finish"
 
-WEBPAGE_URI = "http://xtomo.ru:5021/take_image"
+# WEBPAGE_URI = "http://xtomo.ru:5021/take_image"
 
 
 FRAME_PNG_FILENAME = 'image.png'

@@ -6,7 +6,7 @@ services:
     volumes:
       - ./logs:/var/www/experiment/logs
     external_links:
-      - rbtm-drivers
+      - tango-ds
     ports:
       - "5001:5001"
     networks:
