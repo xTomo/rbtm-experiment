@@ -428,11 +428,18 @@ class Experiment:
         self.logger.info('Finished with DARK images!\n')
 
     def check_source(self):
-        if self.tomograph.source_get_current(from_experiment=True) < 2 or self.tomograph.source_get_voltage(from_experiment=True) < 2:
+
+        current = self.tomograph.source_get_current(from_experiment=True)
+        voltage = self.tomograph.source_get_voltage(from_experiment=True)
+
+        if current < 2 or voltage < 2:
+
             self.logger.info('X-ray source in wrong mode, try restart (off/on)')
+            self.logger.info('current = {0}, voltage = {1}'.format(current, voltage))
             self.tomograph.source_power_off(from_experiment=True)
             time.sleep(5)
             self.tomograph.source_power_on(from_experiment=True)
             time.sleep(5)
+
         else:
             self.logger.info('X-ray source in good mode')
