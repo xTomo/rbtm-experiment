@@ -12,7 +12,7 @@ for storage and web-page of adjustment
 
 REAL_TOMOGRAPH_STORAGE_WEBPAGE = True
 
-TOMO_ADDR = "tango-cs:10000"
+TOMO_ADDR = "rbtm-drivers:10000"
 
 STORAGE_FRAMES_URI = "http://10.0.7.153:5006/storage/frames/post"
 STORAGE_EXP_START_URI = "http://10.0.7.153:5006/storage/experiments/create"
